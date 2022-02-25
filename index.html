@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Touching the Stars Interface</title>
-<link rel="stylesheet" type="text/css" href="./inspector.css">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<script type="module">
+    <h1 id="touching-the-stars-interface">Touching the Stars Interface</h1>
+    <div id="header">
+        <h2 id="purpose">purpose</h2>
+        <p>This project allows you to explore the technology with a demo set of effects using thermal cameras and motion
+            capture tracking.</p>
+    </div>
+    <div id="interfaceHolder">
 
-import define from "./index.js";
-import {Runtime, Library, Inspector} from "./runtime.js";
+    </div>
+    <script src="index.js"></script>
+    <script>
+        window.onload = assembleInterface
+    </script>
+</body>
 
-const runtime = new Runtime();
-const main = runtime.module(define, Inspector.into(document.body));
-
-</script>
+</html>
