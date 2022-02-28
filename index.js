@@ -1,24 +1,38 @@
 var state = {}
 var iholder = document.querySelector("#interfaceHolder")
 let scontrol = document.createElement("div")
-let colornames = "red green blue yellow random".split(" ")
-let sceneNames = "one two three four five six".split(" ")
+let trackerScenes = `
+Icy Sunburst
+Flaming Sunburst
+Dark Waves
+Space Fabric
+Star Dust
+Electric Particle
+Star Child
+Star Shower
+`.trim().split("\n")
+let cameraScenes = "one two three".split(" ")
 
 scontrol.id = "sceneControlHolder"
 function assembleInterface() {
-    let sc = sceneHolder()
-    let ch = colorHolder()
-    makeLabel("Scene Changer:  ",iholder)
-    iholder.append(sc)
+    let trackerSc = sceneMaker(trackerScenes,"trackerHolder")
+    makeLabel("Tracker:  ",iholder)
+    iholder.append(trackerSc)
+    let cameraSc = sceneMaker(cameraScenes,"cameraHolder")
+    makeLabel("Camera:  ",iholder)
+    iholder.append(cameraSc)
+    let home = document.createElement("button")
+    home.innerHTML = "Home"
+    home.onclick = () => {
 
-
-    
-    makeLabel("Scene Specific Controls:  ",iholder)
-    iholder.append(scontrol)
-    makeLabel("Color Theme Selection:",iholder)
-    iholder.append(ch)
-    makeControlsFromName("test")
+        changeState("background","scene")
+    }
+    let homeHolder = document.createElement("div")
+    homeHolder.id = "homeHolder"
+    homeHolder.append(home)
+    iholder.append(homeHolder)
 }
+
 function makeLabel(text,holder) {
     let p = document.createElement("p")
     p.className ="label"
@@ -31,15 +45,6 @@ let sceneControls = () => {
     let controls = makeControlsFromName("test");
     d.append(controls);
     return d;
-}
-let colorHolder = () => {
-    let colorh = document.createElement("div");
-    colorh.id = "colorHolder";
-    for (let name of colornames) {
-        let b = makeButton(name, "color");
-        colorh.append(b);
-    }
-    return colorh;
 }
 function makeControlsFromName(name) {
     let child = scontrol.querySelector("div")
@@ -55,10 +60,10 @@ function makeControlsFromName(name) {
     controlHolder.append(controls);
     scontrol.append(controlHolder)
 }
-let sceneHolder = () => {
+let sceneMaker = (names,id) => {
     let sceneHolder = document.createElement("div");
-    sceneHolder.id = "sceneHolder";
-    for (let name of sceneNames) {
+    sceneHolder.id = id;
+    for (let name of names) {
         let b = makeButton(name, "scene");
         sceneHolder.append(b);
     }
@@ -85,7 +90,7 @@ function makeButton(name, prop) {
     return holder;
 }
 function sendState() {
-    fetch("http://localhost:8003", {
+    fetch("http://192.168.1.2:8003", {
         method: "POST",
         body: JSON.stringify(state)
     }).catch((e) => console.log(e));
