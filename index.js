@@ -71,7 +71,7 @@ let sceneMaker = (names,id) => {
 }
 
 function changeState(name, prop) {
-    state[prop] = name;
+    state[prop] = name.replace(/\s/g,"_").toLowerCase(); 
     sendState()
 }
 function changeFunc(name, prop) {
@@ -90,7 +90,7 @@ function makeButton(name, prop) {
     return holder;
 }
 function sendState() {
-    fetch("http://192.168.1.2:8003", {
+    fetch("http://192.168.2.103:8003", {
         method: "POST",
         body: JSON.stringify(state)
     }).catch((e) => console.log(e));

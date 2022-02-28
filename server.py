@@ -6,7 +6,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 import socket
 
-UDP_IP = "192.168.2.114"
+UDP_IP = "192.168.2.106"
 UDP_PORT = 9980
 MESSAGE = b"Hello, World!"
 
