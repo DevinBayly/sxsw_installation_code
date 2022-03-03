@@ -7,11 +7,12 @@ Flaming Sunburst
 Dark Waves
 Space Fabric
 Star Dust
-Electric Particle
+Quantum Tunneling
+`.trim().split("\n")
+let cameraScenes = `
 Star Child
 Star Shower
 `.trim().split("\n")
-let cameraScenes = "one two three".split(" ")
 
 scontrol.id = "sceneControlHolder"
 function assembleInterface() {
