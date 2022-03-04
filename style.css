@@ -1,12 +1,12 @@
 #interfaceHolder {
 
-    font-size: 20px;
 }
 #header {
-    margin-bottom:40%;
+    margin-bottom:50%;
 }
 #bgImg{
-    scale:5;
+    margin-top:15%;
+    /* scale:5; */
 }
 #bg {
     z-index: -5;
@@ -19,10 +19,17 @@
 }
 body {
     color:white;
+    background-color: black;
+    font-size:30px;
     /* width:100vw; */
+    font-family: "Montserrat";
 }
 button {
-    font-size: 20px;
+    width:90%;
+    height:100px;
+    border-radius: 10px;
+background: linear-gradient(#dddada, #89898a77);
+    font-size: 30px;
 }
 
 #trackerHolder {
@@ -36,10 +43,11 @@ grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
 #trackerHolder button {
-    padding:20px;
+    /* padding:20px; */
     width:90%;
-    height:80%;
-
+    height:100px;
+    border-radius: 10px;
+background: linear-gradient(#dddada, #89898a77);
     
 }
 #interfaceHolder {
@@ -56,8 +64,6 @@ grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
 #cameraHolder button {
-    width:90%;
-    height:100%;
 }
 #ximg {
 scale:.2;

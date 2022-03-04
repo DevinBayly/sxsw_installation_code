@@ -12,6 +12,7 @@ Quantum Tunneling
 let cameraScenes = `
 Star Child
 Star Shower
+Star Stream
 `.trim().split("\n")
 
 scontrol.id = "sceneControlHolder"
